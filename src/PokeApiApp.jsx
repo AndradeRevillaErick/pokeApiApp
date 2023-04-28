@@ -5,25 +5,17 @@ import { GeneratePokemon } from "./components/GeneratePokemon";
 
 export const PokeApiApp = () => {
 
-    // const [pokemon, setPokemon] = useState([]);
-
-    // const onGetPokemon = ( newPokemon ) => {
-        
-    //     setPokemon( newPokemon );
-    // }
-
-
-    // Nombre
-    // Imagen
-    // Tipo
-    // peso
-    // altura
-
     const [pokemon, setPokemon] = useState({})
 
-    const url = 'https://pokeapi.co/api/v2/pokemon/25';
+    let url = 'https://pokeapi.co/api/v2/pokemon/';
+
+    function getRandom(){
+        return Math.floor(Math.random() * 1000);
+    }
 
     async function getPokemon(){
+        const pkId = await getRandom();
+        url = url + pkId;
         const response = await fetch( url );
         const data = await response.json();
         console.log(data);
@@ -40,16 +32,30 @@ export const PokeApiApp = () => {
             'imagenGif': `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${data.id}.gif`,
         };
 
-        console.log(test);
+        return test;
     }
 
-    getPokemon();
+    async function onHandleGenerate(){
+
+        const data = await getPokemon();
+
+        console.log('generado');
+
+        setPokemon( data );
+        console.log(data);
+
+    }
 
     return(
         <>
             <h1>Poke Api App</h1>
 
+            <h1>{ JSON.stringify(pokemon) }</h1>
 
+            <button 
+                onClick={ onHandleGenerate }>
+                Generate
+            </button>
 
 
 
