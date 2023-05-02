@@ -7,6 +7,8 @@ export const PokeApiApp = () => {
 
     const [pokemon, setPokemon] = useState({})
 
+    const [idPokemon, setIdPokemon] = useState(0);
+
     let url = 'https://pokeapi.co/api/v2/pokemon/';
 
     function getRandom(){
@@ -46,19 +48,36 @@ export const PokeApiApp = () => {
 
     }
 
+    function onHandleGetId(){
+        const idPokemon = Math.floor(Math.random() * 1000);
+
+        setIdPokemon( idPokemon );
+    }
+
     return(
         <>
             <h1>Poke Api App</h1>
 
             <h1>{ JSON.stringify(pokemon) }</h1>
 
+            {/* <Pokemon /> */}
+
             <button 
                 onClick={ onHandleGenerate }>
                 Generate
             </button>
 
+            <Pokemon
+                idPokemon = { idPokemon }
+            />
 
+            <h1>{ `Id: ${idPokemon}` }</h1>
+            <button 
+                onClick={ onHandleGetId }>
+                Generate
+            </button>
 
+{/* solo necesito un componente que se encargara de renderizar un pokemon de acuerdo al id creado */}
 
             {/* execute service and get information */}
 
