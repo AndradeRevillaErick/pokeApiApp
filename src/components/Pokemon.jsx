@@ -1,23 +1,20 @@
 
 
-export const Pokemon = ({ idPokemon }) => {
+export const Pokemon = ({ pokemon }) => {
+    console.log(pokemon);
     return (
         <>
-        //recibe la informacion del pokemon no el id
-            <h1>Pokemon: { idPokemon }</h1>
-            //aqui se llama el servicio para obtener la info del pokemon
-            //se muestra el pokemon
+            <h1>Pokemon: { pokemon.nombre }</h1>
             <h3>PokeInfo</h3>
             <div>
-                <span>nombre: {}</span>
-                <span>tipo: {}</span>
-                <span>peso: {}</span>
-                <span>altura: {}</span>
-                <span>hp: {}</span>
-                <span>ataque: {}</span>
-                <span>defensa: {}</span>
-                <span>imagenPng: {}</span>
-                <span>imagenGif: {}</span>
+                <span>tipo: {pokemon.tipo}</span>
+                <span>peso: {pokemon.peso}</span>
+                <span>altura: {pokemon.altura}</span>
+                <span>hp: {pokemon.hp}</span>
+                <span>ataque: {pokemon.ataque}</span>
+                <span>defensa: {pokemon.defensa}</span>
+                <span>imagenPng: {pokemon.imagenPng}</span>
+                <span>imagenGif: {pokemon.imagenGif}</span>
             </div>
         </>
     );
