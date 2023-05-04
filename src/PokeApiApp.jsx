@@ -1,65 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Pokemon } from "./components/Pokemon";
-import { GeneratePokemon } from "./components/GeneratePokemon";
-import { getPokemon } from "./helpers/getPokemon";
-
+import { useFetchPokemon } from "./hooks/useFetchPokemon";
 
 export const PokeApiApp = () => {
+  const [idPokemon, setIdPokemon] = useState(Math.floor(Math.random() * 1000));
+  const { pokemon } = useFetchPokemon(idPokemon);
 
-    const [idPokemon, setIdPokemon] = useState(1);
-    const [pokemon, setPokemon] = useState({});
+  function onHandleGetId() {
+    const idPokemon = Math.floor(Math.random() * 1000);
+    setIdPokemon(idPokemon);
+  }
 
-    function onHandleGetId(){
+  return (
+    <>
+      <h1>Poke Api App</h1>
 
-        const idPokemon = Math.floor(Math.random() * 1000);
-        setIdPokemon( idPokemon );
-    }
+      <Pokemon pokemon={pokemon} />
 
-    async function rqPokemon (){
-
-        const newPokemon = await getPokemon( idPokemon );
-        setPokemon( newPokemon );
-    }
-
-    useEffect(() => {
-        rqPokemon();
-    }, [idPokemon])
-    
-
-    return(
-        <>
-            <h1>Poke Api App</h1>
-
-            <Pokemon
-                pokemon = { pokemon }
-            />
-
-            <h1>{ `Id: ${idPokemon}` }</h1>
-            <button 
-                onClick={ onHandleGetId }>
-                Generate
-            </button>
-
-{/* solo necesito un componente que se encargara de renderizar un pokemon de acuerdo al id creado */}
-
-            {/* execute service and get information */}
-
-            {/* <h1>{ pokemon }</h1>
-
-            <button
-                onClick={ onGenerate }
-            >Generate
-            </button>
-
-            <GeneratePokemon
-                onNewPokemon = { onGetPokemon }
-            /> */}
-
-            {/* order information and show*/}
-
-
-            {/* save information in a list to show  */}
-
-        </>
-    );
-}
+      <h1>{`Id: ${idPokemon}`}</h1>
+      <button onClick={onHandleGetId}>Generate</button>
+    </>
+  );
+};
