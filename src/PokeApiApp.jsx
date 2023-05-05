@@ -18,6 +18,18 @@ export const PokeApiApp = () => {
     setPokemons([...pokemons, idPokemon]);
   }
 
+  function onResetPokeList() {
+    setPokemons([]);
+  }
+
+  function handleDeletePokemon(pokeId) {
+    setPokemons(pokemons.filter((pokemon) => pokemon !== pokeId));
+  }
+
+  //function to show a pokemon when user click them
+  //add validation to avoid eliminate a generated pokemon
+  //optimize ecreything add archivos de barril add useContext or news hooks
+
   return (
     <>
       <h1>Poke Api App</h1>
@@ -29,8 +41,14 @@ export const PokeApiApp = () => {
       <button onClick={onAddPokemon}>Agregar</button>
 
       {pokemons.map((pokeItem) => (
-        <PokemonList key={pokeItem} pokeItem={pokeItem} />
+        <PokemonList
+          key={pokeItem}
+          pokeItem={pokeItem}
+          onDeletePokemon={handleDeletePokemon}
+        />
       ))}
+
+      <button onClick={onResetPokeList}>Reset List</button>
     </>
   );
 };

@@ -1,4 +1,4 @@
-export const Pokemon = ({ pokemon }) => {
+export const Pokemon = ({ pokemon, onDeletePokemon }) => {
   return (
     <>
       <h1>Pokemon: {pokemon.nombre}</h1>
@@ -13,6 +13,8 @@ export const Pokemon = ({ pokemon }) => {
         <span>imagenPng: {pokemon.imagenPng}</span>
         <span>imagenGif: {pokemon.imagenGif}</span>
       </div>
+
+      <button onClick={() => onDeletePokemon(pokemon.idPokemon)}>Borrar</button>
     </>
   );
 };
