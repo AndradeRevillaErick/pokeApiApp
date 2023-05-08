@@ -27,8 +27,7 @@ export const PokeApiApp = () => {
   }
 
   //function to show a pokemon when user click them
-  //add validation to avoid eliminate a generated pokemon
-  //optimize ecreything add archivos de barril add useContext or news hooks
+  //optimize everything add archivos de barril add useContext or news hooks
 
   return (
     <>
