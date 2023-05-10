@@ -1,32 +1,45 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { Pokemon } from "./components/Pokemon";
 import { useFetchPokemon } from "./hooks/useFetchPokemon";
 import { PokemonList } from "./components/PokemonList";
+import { pokemonReducer } from "./helpers/pokemonReducer";
 
 export const PokeApiApp = () => {
   const [idPokemon, setIdPokemon] = useState(Math.floor(Math.random() * 1000));
   const { pokemon } = useFetchPokemon(idPokemon);
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemons, dispatch] = useReducer(pokemonReducer, []);
 
   function onGenerateRndId() {
     const idPokemon = Math.floor(Math.random() * 1000);
     setIdPokemon(idPokemon);
   }
 
-  function onAddPokemon() {
-    if (pokemons.includes(idPokemon)) return;
-    setPokemons([...pokemons, idPokemon]);
+  function handleAddPokemon(idPokemon) {
+    const action = {
+      type: "[POKEMON] Add pokemon",
+      payload: idPokemon,
+    };
+
+    dispatch(action);
   }
 
-  function onResetPokeList() {
-    setPokemons([]);
+  function handleResetPokemon() {
+    const action = {
+      type: "[POKEMON] Reset pokemons",
+      payload: idPokemon,
+    };
+
+    dispatch(action);
   }
 
-  function handleDeletePokemon(pokeId) {
-    setPokemons(pokemons.filter((pokemon) => pokemon !== pokeId));
-  }
+  function handleDeletePokemon(idPokemon) {
+    const action = {
+      type: "[POKEMON] Delete pokemon",
+      payload: idPokemon,
+    };
 
-  //optimize everything add archivos de barril add useContext or news hooks
+    dispatch(action);
+  }
 
   return (
     <>
@@ -36,7 +49,7 @@ export const PokeApiApp = () => {
 
       <button onClick={onGenerateRndId}>Generate</button>
 
-      <button onClick={onAddPokemon}>Agregar</button>
+      <button onClick={() => handleAddPokemon(idPokemon)}>Agregar</button>
 
       {pokemons.map((pokeItem) => (
         <PokemonList
@@ -46,7 +59,7 @@ export const PokeApiApp = () => {
         />
       ))}
 
-      <button onClick={onResetPokeList}>Reset List</button>
+      <button onClick={handleResetPokemon}>Reset List</button>
     </>
   );
 };
