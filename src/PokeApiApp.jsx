@@ -26,7 +26,6 @@ export const PokeApiApp = () => {
     setPokemons(pokemons.filter((pokemon) => pokemon !== pokeId));
   }
 
-  //function to show a pokemon when user click them
   //optimize everything add archivos de barril add useContext or news hooks
 
   return (
