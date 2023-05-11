@@ -1,6 +1,5 @@
-import { Pokemon } from "./components/Pokemon";
-import { PokemonList } from "./components/PokemonList";
 import { usePokeapi } from "./hooks/usePokeapi";
+import { Pokemon, PokemonList } from "./components";
 
 export const PokeApiApp = () => {
   const {
