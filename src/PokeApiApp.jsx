@@ -1,13 +1,31 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { Pokemon } from "./components/Pokemon";
 import { useFetchPokemon } from "./hooks/useFetchPokemon";
 import { PokemonList } from "./components/PokemonList";
 import { pokemonReducer } from "./helpers/pokemonReducer";
 
+const init = () => {
+  return JSON.parse(localStorage.getItem("pokemons") || []);
+};
+
+const initPoke = () => {
+  return JSON.parse(
+    localStorage.getItem("pokemon") || Math.floor(Math.random() * 1000)
+  );
+};
+
 export const PokeApiApp = () => {
-  const [idPokemon, setIdPokemon] = useState(Math.floor(Math.random() * 1000));
+  const [idPokemon, setIdPokemon] = useState(initPoke);
   const { pokemon } = useFetchPokemon(idPokemon);
-  const [pokemons, dispatch] = useReducer(pokemonReducer, []);
+  const [pokemons, dispatch] = useReducer(pokemonReducer, [], init);
+
+  useEffect(() => {
+    localStorage.setItem("pokemons", JSON.stringify(pokemons));
+  }, [pokemons]);
+
+  useEffect(() => {
+    localStorage.setItem("pokemon", idPokemon);
+  }, [idPokemon]);
 
   function onGenerateRndId() {
     const idPokemon = Math.floor(Math.random() * 1000);
