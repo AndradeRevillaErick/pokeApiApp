@@ -14,7 +14,12 @@ export const PokeApiApp = () => {
 
   return (
     <>
-      <h1>Poke Api App</h1>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500;600&display=swap"
+        rel="stylesheet"
+      />
 
       <Pokemon pokemon={pokemon} />
 

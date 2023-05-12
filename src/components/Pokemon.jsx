@@ -1,24 +1,44 @@
 export const Pokemon = ({ pokemon, onDeletePokemon = null }) => {
   return (
     <>
-      <h1>Pokemon: {pokemon.nombre}</h1>
-      <h3>PokeInfo</h3>
-      <div>
-        <span>tipo: {pokemon.tipo}</span>
-        <span>peso: {pokemon.peso}</span>
-        <span>altura: {pokemon.altura}</span>
-        <span>hp: {pokemon.hp}</span>
-        <span>ataque: {pokemon.ataque}</span>
-        <span>defensa: {pokemon.defensa}</span>
-        <span>imagenPng: {pokemon.imagenPng}</span>
-        <span>imagenGif: {pokemon.imagenGif}</span>
-      </div>
+      <div className="pokemon-card">
+        <img src={pokemon.imagenPng} alt={pokemon.nombre} />
+        {/* <h1>{pokemon.nombre}</h1> */}
+        {/* <ul>
+          <li>Type: {pokemon.tipo}</li>
+          <li>Height: {pokemon.peso}</li>
+          <li>Hight: {pokemon.altura}</li>
+          <li>HP: {pokemon.hp}</li>
+          <li>Atack: {pokemon.ataque}</li>
+          <li>Defense: {pokemon.defensa}</li>
+        </ul> */}
 
-      {onDeletePokemon && (
-        <button onClick={() => onDeletePokemon(pokemon.idPokemon)}>
-          Borrar
-        </button>
-      )}
+        <h2 class="pokemon-name">{pokemon.nombre}</h2>
+        <p class="pokemon-type">Tipo: {pokemon.tipo}</p>
+        <div class="pokemon-stats">
+          <p>
+            <strong>Peso:</strong> {pokemon.peso}
+          </p>
+          <p>
+            <strong>Altura:</strong> {pokemon.altura}
+          </p>
+          <p>
+            <strong>HP:</strong> {pokemon.hp}
+          </p>
+          <p>
+            <strong>Ataque:</strong> {pokemon.ataque}
+          </p>
+          <p>
+            <strong>Defensa:</strong> {pokemon.defensa}
+          </p>
+        </div>
+
+        {onDeletePokemon && (
+          <button onClick={() => onDeletePokemon(pokemon.idPokemon)}>
+            Borrar
+          </button>
+        )}
+      </div>
     </>
   );
 };
