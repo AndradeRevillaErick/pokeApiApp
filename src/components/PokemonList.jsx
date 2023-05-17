@@ -6,7 +6,6 @@ export const PokemonList = ({ pokeItem, onDeletePokemon }) => {
 
   return (
     <>
-      <h3>pokemonList {pokeItem}</h3>
       <Pokemon pokemon={pokemon} onDeletePokemon={onDeletePokemon} />
     </>
   );
