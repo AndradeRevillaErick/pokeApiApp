@@ -3,41 +3,32 @@ export const Pokemon = ({ pokemon, onDeletePokemon = null }) => {
     <>
       <div className="pokemon-card">
         <img src={pokemon.imagenPng} alt={pokemon.nombre} />
-        {/* <h1>{pokemon.nombre}</h1> */}
-        {/* <ul>
-          <li>Type: {pokemon.tipo}</li>
-          <li>Height: {pokemon.peso}</li>
-          <li>Hight: {pokemon.altura}</li>
-          <li>HP: {pokemon.hp}</li>
-          <li>Atack: {pokemon.ataque}</li>
-          <li>Defense: {pokemon.defensa}</li>
-        </ul> */}
-
-        <h2 class="pokemon-name">{pokemon.nombre}</h2>
-        <p class="pokemon-type">Tipo: {pokemon.tipo}</p>
-        <div class="pokemon-stats">
-          <p>
-            <strong>Peso:</strong> {pokemon.peso}
-          </p>
-          <p>
-            <strong>Altura:</strong> {pokemon.altura}
-          </p>
-          <p>
-            <strong>HP:</strong> {pokemon.hp}
-          </p>
-          <p>
-            <strong>Ataque:</strong> {pokemon.ataque}
-          </p>
-          <p>
-            <strong>Defensa:</strong> {pokemon.defensa}
-          </p>
+        <h3 className="pokemon-name">{pokemon.nombre}</h3>
+        <h5>{pokemon.tipo}</h5>
+        <hr />
+        <div className="pokemon-stats">
+          <span className="rowOne">
+            Atack: <strong>{pokemon.ataque}</strong>
+          </span>
+          <span className="rowOne">
+            Defense: <strong>{pokemon.defensa}</strong>
+          </span>
+          <span className="rowTwo">
+            HP: <strong>{pokemon.hp}</strong>
+          </span>
+          <span className="rowTwo">
+            Weight: <strong>{pokemon.peso}</strong>
+          </span>
+          <span className="rowTwo">
+            Height: <strong>{pokemon.altura}</strong>
+          </span>
+          {onDeletePokemon && (
+            <div
+              className="deleteBtn"
+              onClick={() => onDeletePokemon(pokemon.idPokemon)}
+            ></div>
+          )}
         </div>
-
-        {onDeletePokemon && (
-          <button onClick={() => onDeletePokemon(pokemon.idPokemon)}>
-            Borrar
-          </button>
-        )}
       </div>
     </>
   );

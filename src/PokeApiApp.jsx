@@ -25,7 +25,7 @@ export const PokeApiApp = () => {
 
       <button onClick={onGenerateRndId}>Generate</button>
 
-      <button onClick={() => handleAddPokemon(idPokemon)}>Agregar</button>
+      <button onClick={() => handleAddPokemon(idPokemon)}>Add</button>
 
       {pokemons.map((pokeItem) => (
         <PokemonList

@@ -5,8 +5,8 @@ export const getPokemon = async (idPokemon) => {
 
   const pokemon = {
     idPokemon: idPokemon,
-    nombre: data.name,
-    tipo: data.types[0].type.name,
+    nombre: data.name.toUpperCase(),
+    tipo: data.types[0].type.name.toUpperCase(),
     peso: data.weight,
     altura: data.height,
     hp: data.stats[0].base_stat,
