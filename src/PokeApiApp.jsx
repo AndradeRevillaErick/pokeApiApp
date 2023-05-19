@@ -31,15 +31,17 @@ export const PokeApiApp = () => {
 
       <button onClick={() => handleAddPokemon(idPokemon)}>Add</button>
 
-      {pokemons.map((pokeItem) => (
-        <PokemonList
-          key={pokeItem}
-          pokeItem={pokeItem}
-          onDeletePokemon={handleDeletePokemon}
-        />
-      ))}
-
       <button onClick={handleResetPokemon}>Reset List</button>
+
+      <div className="pokelist">
+        {pokemons.map((pokeItem) => (
+          <PokemonList
+            key={pokeItem}
+            pokeItem={pokeItem}
+            onDeletePokemon={handleDeletePokemon}
+          />
+        ))}
+      </div>
     </>
   );
 };
