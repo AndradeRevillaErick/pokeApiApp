@@ -31,6 +31,8 @@ export const PokeApiApp = () => {
 
       <button onClick={() => handleAddPokemon(idPokemon)}>Add</button>
 
+      <button onClick={handleResetPokemon}>Reset List</button>
+
       {pokemons.map((pokeItem) => (
         <PokemonList
           key={pokeItem}
@@ -38,8 +40,6 @@ export const PokeApiApp = () => {
           onDeletePokemon={handleDeletePokemon}
         />
       ))}
-
-      <button onClick={handleResetPokemon}>Reset List</button>
     </>
   );
 };
