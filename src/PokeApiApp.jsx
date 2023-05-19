@@ -33,13 +33,15 @@ export const PokeApiApp = () => {
 
       <button onClick={handleResetPokemon}>Reset List</button>
 
-      {pokemons.map((pokeItem) => (
-        <PokemonList
-          key={pokeItem}
-          pokeItem={pokeItem}
-          onDeletePokemon={handleDeletePokemon}
-        />
-      ))}
+      <div className="pokelist">
+        {pokemons.map((pokeItem) => (
+          <PokemonList
+            key={pokeItem}
+            pokeItem={pokeItem}
+            onDeletePokemon={handleDeletePokemon}
+          />
+        ))}
+      </div>
     </>
   );
 };
