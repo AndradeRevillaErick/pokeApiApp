@@ -48,14 +48,36 @@ body {
     color: #092536;
   }
 
-  .deleteBtn{
-    background-image: url('../assest/icons/x-icon.svg');
-    width: 48px;
-    height: 48px;
-  }
-
   .pokelist {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+  }
+
+  .deleteBtn{
+    background-image: url('../assest/icons/delete.png');
+    background-size: cover;
+    width: 48px;
+    height: 48px;
+  }
+
+  .resetBtn{
+    background-image: url('../assest/icons/reset.png');
+    background-size: cover;
+    width: 48px;
+    height: 48px;
+  }
+
+  .generateBtn{
+    background-image: url('../assest/icons/generate.png');
+    background-size: cover;
+    width: 48px;
+    height: 48px;
+  }
+
+  .addBtn{
+    background-image: url('../assest/icons/add.png');
+    background-size: cover;
+    width: 48px;
+    height: 48px;
   }

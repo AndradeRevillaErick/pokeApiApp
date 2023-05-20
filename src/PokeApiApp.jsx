@@ -27,11 +27,14 @@ export const PokeApiApp = () => {
 
       <Pokemon pokemon={pokemon} />
 
-      <button onClick={onGenerateRndId}>Generate</button>
+      {/* <button onClick={onGenerateRndId}>Generate</button> */}
+      <div className="generateBtn" onClick={onGenerateRndId}></div>
 
-      <button onClick={() => handleAddPokemon(idPokemon)}>Add</button>
+      {/* <button onClick={() => handleAddPokemon(idPokemon)}>Add</button> */}
+      <div className="addBtn" onClick={() => handleAddPokemon(idPokemon)}></div>
 
-      <button onClick={handleResetPokemon}>Reset List</button>
+      {/* <button onClick={handleResetPokemon}>Reset List</button> */}
+      <div className="resetBtn" onClick={handleResetPokemon}></div>
 
       <div className="pokelist">
         {pokemons.map((pokeItem) => (
