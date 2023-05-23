@@ -14,29 +14,22 @@ export const PokeApiApp = () => {
 
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="true"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500;600&display=swap"
-        rel="stylesheet"
-      />
+      <div className="container">
+        <div className="pokegen">
+          <Pokemon pokemon={pokemon} />
+        </div>
 
-      <Pokemon pokemon={pokemon} />
+        <div className="buttonsApp">
+          <div className="generateBtn" onClick={onGenerateRndId}></div>
 
-      {/* <button onClick={onGenerateRndId}>Generate</button> */}
-      <div className="generateBtn" onClick={onGenerateRndId}></div>
+          <div
+            className="addBtn"
+            onClick={() => handleAddPokemon(idPokemon)}
+          ></div>
 
-      {/* <button onClick={() => handleAddPokemon(idPokemon)}>Add</button> */}
-      <div className="addBtn" onClick={() => handleAddPokemon(idPokemon)}></div>
+          <div className="resetBtn" onClick={handleResetPokemon}></div>
+        </div>
 
-      {/* <button onClick={handleResetPokemon}>Reset List</button> */}
-      <div className="resetBtn" onClick={handleResetPokemon}></div>
-
-      <div className="pokelist">
         {pokemons.map((pokeItem) => (
           <PokemonList
             key={pokeItem}

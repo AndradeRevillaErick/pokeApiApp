@@ -1,8 +1,4 @@
 body {
-  display: grid;
-  text-align: center;
-  place-items: center;
-  height: 50vh;    
   font-family: 'Fredoka', sans-serif;
   color: #3b4856;
   /* background-color: #bf4d5d; */
@@ -48,10 +44,24 @@ body {
     color: #092536;
   }
 
-  .pokelist {
+  .container {
     display: grid;
+    place-items: center;
+    text-align: center;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 40px 20px;
+  }
+
+  .pokegen {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+
+  .buttonsApp{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    display: flex;
+    gap: 50px;
   }
 
   .deleteBtn{
