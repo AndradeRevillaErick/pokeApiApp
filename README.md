@@ -4,4 +4,4 @@ In this project, I utilized the Poke API to retrieve information about random po
 
 If you want to see how the app looks, it is deployed on Vercel. You can access it using the following link: 
 
-poke-api-app-xi.vercel.app
+https://poke-api-app-xi.vercel.app
