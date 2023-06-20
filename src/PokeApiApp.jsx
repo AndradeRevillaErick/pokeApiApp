@@ -15,21 +15,21 @@ export const PokeApiApp = () => {
   return (
     <>
       <div className="container">
-        <div className="pokegen">
-          <Pokemon pokemon={pokemon} />
-        </div>
+        <Pokemon pokemon={pokemon} />
 
         <div className="buttonsApp">
-          <div className="generateBtn" onClick={onGenerateRndId}></div>
+          <div className="generateBtn appBtn" onClick={onGenerateRndId}></div>
 
           <div
-            className="addBtn"
+            className="addBtn appBtn"
             onClick={() => handleAddPokemon(idPokemon)}
           ></div>
 
-          <div className="resetBtn" onClick={handleResetPokemon}></div>
+          <div className="resetBtn appBtn" onClick={handleResetPokemon}></div>
         </div>
+      </div>
 
+      <div className="pokelist">
         {pokemons.map((pokeItem) => (
           <PokemonList
             key={pokeItem}

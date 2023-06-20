@@ -24,7 +24,7 @@ export const Pokemon = ({ pokemon, onDeletePokemon = null }) => {
           </span>
           {onDeletePokemon && (
             <div
-              className="deleteBtn"
+              className="deleteBtn appBtn"
               onClick={() => onDeletePokemon(pokemon.idPokemon)}
             ></div>
           )}
