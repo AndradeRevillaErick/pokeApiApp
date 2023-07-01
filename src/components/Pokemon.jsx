@@ -1,7 +1,17 @@
+import { useCardTransform } from "../hooks/useCardTransform";
+
 export const Pokemon = ({ pokemon, onDeletePokemon = null }) => {
+  const { pokeRef, handleMouseEnter, handleMouseLeave } = useCardTransform();
+
   return (
     <>
-      <div className="pokemon-card">
+      <div
+        ref={pokeRef}
+        className="pokemon-card"
+        id={pokemon.idPokemon}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <img src={pokemon.imagenPng} alt={pokemon.nombre} />
         <h3 className="pokemon-name">{pokemon.nombre}</h3>
         <h5>{pokemon.tipo}</h5>
